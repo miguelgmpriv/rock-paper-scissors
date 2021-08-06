@@ -16,33 +16,49 @@ function playerPlay(){
     }
 }
 
-let playerChoice = playerPlay();
-let computerChoice = computerPlay();
 
-console.log(computerChoice);
-console.log(playerChoice);
-function playRound(playerSelection, computerSelection){
+
+function playRound(playerSelection = playerPlay(), computerSelection = computerPlay()){
   
     if (playerSelection === computerSelection){
-        alert('It\'s a draw! Both players picked ' + playerSelection + '!')
-        return;
+        console.log('It\'s a draw! Both players picked ' + playerSelection + '!')
+        return 0;
     }
-
     if (playerSelection === 'ROCK' && computerSelection === 'SCISSORS'){
-        alert('You win! ' + playerSelection + ' beats  '+computerSelection+'!');
-        return;
+        console.log('You win! ' + playerSelection + ' beats  '+computerSelection+'!');
+        return true;
     } else if (playerSelection === 'PAPER' && computerSelection === 'ROCK'){
-        alert('You win! ' + playerSelection + ' beats  '+computerSelection+'!');
-        return;
+        console.log('You win! ' + playerSelection + ' beats  '+computerSelection+'!');
+        return true;
     } else if (playerSelection === 'SCISSORS' && computerSelection === 'ROCK'){
-        alert('You win! ' + playerSelection + ' beats  '+computerSelection+'!');
-        return;
+        console.log('You win! ' + playerSelection + ' beats  '+computerSelection+'!');
+        return true;
     } else {
-        alert('You lose! '+computerSelection+' beats '+playerSelection+'!');
-        return;
+        console.log('You lose! '+computerSelection+' beats '+playerSelection+'!');
+        return false;
     }
-
 
 }
+function playGame(){
+    let playerScore = 0;
+    let computerScore = 0;
+    for (let counter = 0; counter < 5; counter++){
+        let roundWinner = playRound();
+        if(roundWinner === 0){
+            continue;
+        } else if (roundWinner === true){
+            playerScore = playerScore + 1;
+        } else {
+            computerScore = computerScore + 1;
+        }
+    }
+    if (playerScore === computerScore){
+        console.log('No winner\'s here! Play again?');
+    } else if(playerScore > computerScore){
+        console.log('You are the winner of this game with a score of '+playerScore+'! Play again?');
+    } else {
+        console.log('You lost this game :(. Your score is '+playerScore+'. Play again?');
+    }
+}
 
-playRound(playerChoice,computerChoice);
+playGame();

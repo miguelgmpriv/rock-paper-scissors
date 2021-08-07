@@ -7,6 +7,7 @@ function computerPlay(){
 function playerPlay(){
     while(true){
     let playerPick = prompt('Enter your choice(Rock, Paper or Scissors)', '');
+    if (playerPick === null) {return null};
     playerPick = playerPick.toUpperCase();
     if (playerPick === 'ROCK' || playerPick === 'PAPER' || playerPick === 'SCISSORS'){
     return playerPick;
@@ -19,7 +20,7 @@ function playerPlay(){
 
 
 function playRound(playerSelection = playerPlay(), computerSelection = computerPlay()){
-  
+    if (playerSelection === null){return null};
     if (playerSelection === computerSelection){
         console.log('It\'s a draw! Both players picked ' + playerSelection + '!')
         return 0;
@@ -44,6 +45,9 @@ function playGame(){
     let computerScore = 0;
     for (let counter = 0; counter < 5; counter++){
         let roundWinner = playRound();
+        if (roundWinner === null){
+            return console.log('Game over!');
+        }
         if(roundWinner === 0){
             continue;
         } else if (roundWinner === true){

@@ -17,21 +17,24 @@ function computerPlay(){
 
 
 function playRound(playerSelection, computerSelection = computerPlay()){
+    const output = document.querySelector('#output');
+    const lineBreak = document.createElement('br');
+    output.appendChild(lineBreak);
     if (playerSelection === computerSelection){
-        console.log('It\'s a draw! Both players picked ' + playerSelection + '!')
+        output.append(`It\'s a draw! Both players picked ${playerSelection} !`)
         return 0;
     }
     if (playerSelection === 'rock' && computerSelection === 'scissors'){
-        console.log('You win! ' + playerSelection + ' beats  '+computerSelection+'!');
+        output.append('You win! ' + playerSelection + ' beats  '+computerSelection+'!');
         return keepScore(true);
     } else if (playerSelection === 'paper' && computerSelection === 'rock'){
-        console.log('You win! ' + playerSelection + ' beats  '+computerSelection+'!');
+        output.append('You win! ' + playerSelection + ' beats  '+computerSelection+'!');
         return keepScore(true);
     } else if (playerSelection === 'scissors' && computerSelection === 'rock'){
-        console.log('You win! ' + playerSelection + ' beats  '+computerSelection+'!');
+        output.append('You win! ' + playerSelection + ' beats  '+computerSelection+'!');
         return keepScore(true);
     } else {
-        console.log('You lose! '+computerSelection+' beats '+playerSelection+'!');
+        output.append('You lose! '+computerSelection+' beats '+playerSelection+'!');
         return keepScore(false);
     }
 

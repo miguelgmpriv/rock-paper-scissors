@@ -1,18 +1,41 @@
 <!DOCTYPE html>
-<head><script src="script.js" defer></script></head>
+<head>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
+    
+    <h1 id="title">Rock Paper Scissors!</h1>
     <div class="scores">
-        <div id="scores">
+        <div class="player">
             <p>Player Score</p>
             <p id="playerScore">0</p>
         </div>
-        <div id="scores">
+        <div class="computer">
             <p>Opponent Score</p>
             <p id="computerScore">0</p>
+        </div>
+    </div>
+    <div class="images">
+        <div>
+            <img class="rock" src="rock-icon-7.png">
+            <img class="scissors" src="hand-scissors.png">
+            <img class="paper" src="hand-paper.png">
+        </div>
+        <div>
+            <img class="rock" src="rock-icon-7.png">
+            <img class="scissors" src="hand-scissors.png">
+            <img class="paper" src="hand-paper.png">
+    
         </div>
     </div>
     <button class="playerBtn" id="rock">Rock</button>
     <button class="playerBtn" id="paper">Paper</button>
     <button class="playerBtn" id="scissors">Scissors</button>
+    <div id="outSection">
+        <p id="output">
+
+        </p>
+    </div>
 </body>
 </html>

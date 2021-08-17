@@ -1,37 +1,54 @@
 <!DOCTYPE html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-    <h1 id="title">Rock Paper Scissors!</h1>
-    <div class="scores">
-        <div class="player">
-            <p>Player Score</p>
-            <p id="playerScore">0</p>
+    <div class="col-12 header">
+        <h1 id="title">Rock Paper Scissors!</h1>
+    </div>
+    <div class="col-12 emptySpace">
+    </div>
+    <div class="row playerBar">
+        <div class="col-6 playerArea">
+            <img class="selfRock" id="rock" src="rock-icon-7.png">
+            <img class="selfScissors" id="scissors" src="hand-scissors.png">
+            <img class="selfPaper" id="paper" src="hand-paper.png">
         </div>
-        <div class="computer">
-            <p>Opponent Score</p>
+        <div class="col-3 scores">
+            <img id="player" src="outline_person_black_48dp.png">
+            <p id="playerScore">0</p>
+            <img id="computer" src="outline_computer_black_48dp.png">
             <p id="computerScore">0</p>
         </div>
-    </div>
-    <div class="images">
-        <div>
+        <div class="col-6 computerArea">
             <img class="rock" src="rock-icon-7.png">
             <img class="scissors" src="hand-scissors.png">
             <img class="paper" src="hand-paper.png">
         </div>
-        <div>
-            <img class="rock" src="rock-icon-7.png">
-            <img class="scissors" src="hand-scissors.png">
-            <img class="paper" src="hand-paper.png">
-    
-        </div>
     </div>
-    <button class="playerBtn" id="rock">Rock</button>
-    <button class="playerBtn" id="paper">Paper</button>
-    <button class="playerBtn" id="scissors">Scissors</button>
+
+    <!-- <div class="row menuBar">
+        <div class="col-2 empty">
+
+        </div>
+        <div class="col-5 menu">
+            <div class="col-12 optionsHeader">
+                <h2>Game Options</h2>
+            </div>
+            <div class="col-6 optionName">
+            <p>Show log</p>
+            <p>Computer speed</p>
+            <p>Toggle Random</p>
+            <br>
+            <br>
+            </div>
+        </div>
+    </div> -->
+    <div>
+
+    </div>
     <div id="outSection">
         <p id="output">
 

@@ -2,19 +2,25 @@
     box-sizing: border-box;
 }
 body{
-    background-color: #364fa15b;
+    background-color: hsla(226, 87%, 18%, 0.377);
 }
 img{
-    height: 75px;
-    width: 75px;
+    height: 100px;
+    width: 100px;
+    margin: 15px;
+    padding: 5px;
+}
+p{
+    border-style: solid;
+    padding: 5px;
+    font-size: 2em;
     
 }
-
-    /* For mobile phones: */
+ 
 [class*="col-"] {
      float: left;
-     padding: 15px;
-     border: 1px solid black;
+     padding: 1px;
+    
 }
 [class*="Area"]{
     display: flex;
@@ -23,8 +29,8 @@ img{
     justify-content: center;
 }
 
-.col-3 {width: 25%;}
-.col-6 {width: 37.5%;}
+.col-3 {width: 20%;}
+.col-6 {width: 40%;}
 .col-12{width: 100%;}
 
 @media only screen and (min-width: 768px){
@@ -32,10 +38,19 @@ img{
         align-items:flex-end;
         justify-content: center;
     }
-    .computerArea{
+    .opponentArea{
         align-items: flex-start;
         justify-content: center;
     }
+    img{
+        height: 125px;
+        width: 125px;
+        margin: 15px;
+        padding: 5px;
+    }
+    .col-3 {width: 15%;}
+    .col-6 {width: 42.5%};
+    .col-12{width: 42.5%;}
 }
 
 
@@ -59,22 +74,35 @@ img{
 #title{
     display: flex;
     justify-content: center;
-    color: hsla(230, 74%, 6%, 0.637);
+    /*color: hsla(230, 74%, 6%, 0.637);*/
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: lighter;
 }
+.header{
+    border-bottom: 5px solid rgb(6, 6, 65);
 
+}
 
 .scores {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
-/* .rock{
-    width: 10%;
-    height: auto;
+[class*="comp"]{
+    border: solid;
+    border-color: rgb(6, 6, 65);
+    border-radius: 5px;
+    border-width: medium;
+    background-color: rgb(212, 212, 240);
 }
+[class*="self"]{
+    border: solid;
+    border-color: rgb(6, 6, 65);
+    border-radius: 5px;
+    border-width: medium;
+    background-color: rgba(72, 72, 121, 0.295);
+}
+/* 
 .paper{
     width: 10%;
     height: auto;

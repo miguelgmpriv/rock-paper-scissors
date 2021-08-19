@@ -1,6 +1,7 @@
 window.addEventListener('click',function(e){
     const playerChoice = e.target.id;
     if (playerChoice === 'rock' || playerChoice === 'scissors' || playerChoice === 'paper'){
+        document.getElementById('playerPick').src = `${playerChoice}.png`;
         return playRound(playerChoice);
     } else {
         return;
@@ -11,34 +12,45 @@ window.addEventListener('click',function(e){
 function computerPlay(){
     let computerOptions = ['rock','paper','scissors'];
     let computerPick = Math.floor(Math.random() * 3);
+    document.getElementById('computerPick').src = `${computerOptions[computerPick]}.png`;
     return computerOptions[computerPick];
 }
 
 
 
-function playRound(playerSelection, computerSelection = computerPlay()){
-    const output = document.querySelector('#output');
-    const lineBreak = document.createElement('br');
-    output.appendChild(lineBreak);
-    if (playerSelection === computerSelection){
-        output.append(`It\'s a draw! Both players picked ${playerSelection} !`)
-        return 0;
+function playRound(playerSelect, cpuSelect = computerPlay()){
+    if (playerSelect === cpuSelect){
+        displayText(playerSelect,cpuSelect,0);
+       return 0;
     }
-    if (playerSelection === 'rock' && computerSelection === 'scissors'){
-        output.append('You win! ' + playerSelection + ' beats  '+computerSelection+'!');
+    if (playerSelect === 'rock' && cpuSelect === 'scissors'){
+        displayText(playerSelect,cpuSelect,true);
         return keepScore(true);
-    } else if (playerSelection === 'paper' && computerSelection === 'rock'){
-        output.append('You win! ' + playerSelection + ' beats  '+computerSelection+'!');
+    } else if (playerSelect === 'paper' && cpuSelect === 'rock'){
+        displayText(playerSelect,cpuSelect,true);
         return keepScore(true);
-    } else if (playerSelection === 'scissors' && computerSelection === 'rock'){
-        output.append('You win! ' + playerSelection + ' beats  '+computerSelection+'!');
+    } else if (playerSelect === 'scissors' && cpuSelect === 'rock'){
+        displayText(playerSelect,cpuSelect,true);
         return keepScore(true);
     } else {
-        output.append('You lose! '+computerSelection+' beats '+playerSelection+'!');
+        displayText(playerSelect,cpuSelect,false);
         return keepScore(false);
     }
 
 }
+
+function displayText(playerSelect,cpuSelect,victory){
+    const output = document.querySelector('#output');
+
+    if (victory === 0) {    
+        output.textContent = `It\'s a draw! Both players picked ${playerSelect} !`;
+    } else if (victory === true) {
+        output.textContent = `You win! ${playerSelect} beats ${cpuSelect}!`;
+    } else if (victory === false) {
+        output.textContent = `You lose! ${cpuSelect} beats ${playerSelect}!`;
+    } 
+}
+
 function keepScore(winner){
     let playerScore = Number(document.querySelector('#playerScore').textContent);
     let computerScore = Number(document.querySelector('#computerScore').textContent);
@@ -49,7 +61,7 @@ function keepScore(winner){
     }
     document.querySelector('#playerScore').textContent = playerScore;
     document.querySelector('#computerScore').textContent = computerScore;
-    if (playerScore === 3){
+    if (playerScore === 5){
         return console.log('You won!');
     } else if (computerScore === 3){
         return console.log('Your opponent won!');

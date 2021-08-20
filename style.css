@@ -16,7 +16,9 @@ p {
     font-weight: bold;    
     color: #09223ad2;
 }
-
+h2 {
+    text-align: center;
+}
 .col-1 {width: 10%;}
 .col-3 {width: 80%;}
 .col-6 {width: 50%;}
@@ -34,11 +36,17 @@ p {
     background-color: #1ba6f7;
     opacity: 90%;
 }
-
+.pcPick{
+    border: 5px solid black !important;
+    background-color: #278ac45b !important;
+    opacity: 90% !important;
+}
 .emptySpace{
     height: fit-content;
     display: flex;
+    flex-direction: column;
     align-content: center;
+    align-items: center;
     justify-content: center;
     color: rgb(59, 59, 150);
 }
@@ -58,7 +66,15 @@ p {
     justify-content: center;
  
 }
-
+#start {
+    display: none;
+    background-color: rgba(95, 95, 207, 0.384);
+    padding: 20px 40px;
+    font-size: x-large;
+    height: fit-content;
+    width: fit-content;      
+    margin-bottom: 10px;
+}
 #computer{
     max-width: 65px;
     max-height: 65px;
